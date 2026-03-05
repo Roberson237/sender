@@ -6,7 +6,25 @@ import { FaDownload } from 'react-icons/fa';
 import { saveAs } from 'file-saver';
 import Navbar from '../Navbar';
 
+export const dynamic = 'force-dynamic';
+
 export default function DownloadPage() {
+    const [url, setUrl] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handledownload = async () => {
+        if (!url) return;
+        setLoading(true);
+        try {
+            // Implement download logic here
+            // For example, fetch the file and save it
+        } catch (error) {
+            console.error('Download failed', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 p-4">
             <Navbar />
